@@ -1,4 +1,4 @@
-![Java 23 Build & Test - Enum, Constructor chaining, Metode statice "factory"](https://github.com/anaantonie/qa-class-enum-java/actions/workflows/ci.yml/badge.svg)
+![Java 23 Build & Test - Enum, Constructor chaining, Metode statice 'factory'](https://github.com/anaantonie/qa-class-enum-java/actions/workflows/ci.yml/badge.svg)
 
 **Tema BrowserConfig - Java**  
 Această temă demonstrează crearea și utilizarea unei clase `BrowserConfig` care modelează configurația unui browser pentru teste automate, demonstrând utilizarea conceptelor de **enum**, **constructori supraîncărcați cu this()**, **atributul constructorName** și **metode statice "factory"**.
@@ -18,7 +18,8 @@ public enum BrowserType {
 ```
 
 **Avantajul folosirii unui enum:**
-- Asigură valori fixe și sigure pentru tipurile de browser  
+
+- Asigură valori fixe și sigure pentru tipurile de browser
 - Evită erori de tipar sau valori invalide
 
 ---
@@ -29,8 +30,8 @@ Clasa `BrowserConfig` stochează configurația unui browser și demonstrează **
 
 ### Constructori
 
-1. **Constructor complet**  
-   - Inițializează toate câmpurile: `browser`, `version`, `isHeadless`  
+1. **Constructor complet**
+   - Inițializează toate câmpurile: `browser`, `version`, `isHeadless`
    - Setează `constructorName` pentru a indica ce constructor a fost folosit
 
 ```java
@@ -42,9 +43,9 @@ public BrowserConfig(BrowserType browser, String version, boolean isHeadless) {
 }
 ```
 
-2. **Constructor cu browser și versiune**  
-   - Apelează constructorul complet folosind **this()**  
-   - Setează `isHeadless` implicit la `false`  
+2. **Constructor cu browser și versiune**
+   - Apelează constructorul complet folosind **this()**
+   - Setează `isHeadless` implicit la `false`
    - Setează `constructorName`
 
 ```java
@@ -54,10 +55,10 @@ public BrowserConfig(BrowserType browser, String version) {
 }
 ```
 
-3. **Constructor cu browser doar**  
-   - Apelează constructorul cu browser + versiune folosind **this()**  
-   - Setează versiunea la "latest"  
-   - `isHeadless` este preluat din constructorul precedent  
+3. **Constructor cu browser doar**
+   - Apelează constructorul cu browser + versiune folosind **this()**
+   - Setează versiunea la "latest"
+   - `isHeadless` este preluat din constructorul precedent
    - Setează `constructorName`
 
 ```java
@@ -69,9 +70,9 @@ public BrowserConfig(BrowserType browser) {
 
 ### Metodă statică "factory"
 
-- Creează o configurație Chrome implicită  
-- Folosește intern **Constructor 1**  
-- Este **statică**, deci poate fi apelată fără a crea un obiect BrowserConfig  
+- Creează o configurație Chrome implicită
+- Folosește intern **Constructor 1**
+- Este **statică**, deci poate fi apelată fără a crea un obiect BrowserConfig
 - Setează `constructorName` pentru a indica metoda folosită
 
 ```java
@@ -102,9 +103,9 @@ Clasa `TestConfigRunner` demonstrează utilizarea tuturor constructorilor din `B
 ### Ce face codul
 
 1. Creează un **array de obiecte `BrowserConfig`** folosind:
-   - **Constructorul 1:** toate câmpurile (`browser`, `version`, `isHeadless`)  
-   - **Constructorul 2:** `browser` + `version` (headless implicit `false`)  
-   - **Constructorul 3:** doar `browser` (versiune implicită "latest", headless preluat din constructorul anterior)  
+   - **Constructorul 1:** toate câmpurile (`browser`, `version`, `isHeadless`)
+   - **Constructorul 2:** `browser` + `version` (headless implicit `false`)
+   - **Constructorul 3:** doar `browser` (versiune implicită "latest", headless preluat din constructorul anterior)
    - **Metoda statică `createDefaultChromeConfig()`**: creează o configurație Chrome implicită folosind intern constructorul 1
 
 ```java
@@ -132,4 +133,3 @@ for (BrowserConfig config : configs) {
 | Browser: EDGE     | Version: latest  | Headless: false | Used: Constructor 3 (browser)
 | Browser: CHROME   | Version: default | Headless: true  | Used: Factory Method (createDefaultChromeConfig -> Constructor 1)
 ```
-
