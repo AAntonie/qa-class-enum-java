@@ -1,4 +1,4 @@
-![Java 23 Build & Test - Enum, Constructor chaining, Metode statice 'factory'](https://github.com/anaantonie/qa-class-enum-java/actions/workflows/ci.yml/badge.svg)
+![Java 23 Build & Test - Enum, Constructor chaining, Metode statice factory](https://github.com/anaantonie/qa-class-enum-java/actions/workflows/ci.yml/badge.svg)
 
 **Tema BrowserConfig - Java**  
 Această temă demonstrează crearea și utilizarea unei clase `BrowserConfig` care modelează configurația unui browser pentru teste automate, demonstrând utilizarea conceptelor de **enum**, **constructori supraîncărcați cu this()**, **atributul constructorName** și **metode statice "factory"**.
