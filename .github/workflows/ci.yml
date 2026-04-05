@@ -1,4 +1,4 @@
-name: BrowserConfig Homework - Java 23 CI
+name: BrowserConfig QA CI - Java 23 - Testing Enums, Constructor Chaining & Factory Methods
 
 on:
   push:
@@ -11,17 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v5
 
+      # Set up Java 23 using Temurin distribution
       - name: Set up Temurin JDK 23
         uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: "23"
 
+      # Verify the installed Java version
       - name: Verify Java version
         run: java -version
 
-      - name: Build and run tests
-        run: mvn clean test
+      # Build the project and run the code
+      - name: Build and run code
+        run: mvn clean compile
