@@ -28,4 +28,4 @@ jobs:
 
       # Build the project and run the code
       - name: Build and run code
-        run: mvn clean compile
+        run: mvn clean install
